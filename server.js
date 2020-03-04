@@ -1,5 +1,15 @@
 var express = require('express');        //accessing express library
 var app = express();        //accessing a part of express library
+var mongoose = require('mongoose'); //required mongoose
+
+mongoose.connect('mongodb://localhost: 27017/test').then(() =>{ //connectd to mongoose
+    console.log('Connected'); //waits for message to let us know we r connected 
+}
+)
+.catch(err => {
+    console.log('Not Connected to DB'); //if we r not connected
+})
+
 
 app.get('/', (req, res) => { //fat arrow means function
     res.send('This is the homepage'); //send this info to /
